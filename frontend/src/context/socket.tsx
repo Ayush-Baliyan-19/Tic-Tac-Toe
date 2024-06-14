@@ -25,7 +25,9 @@ export const SocketProvider = ({ children }: Readonly<{ children: React.ReactNod
   const [symbol, setSymbol] = useState('O');
 
   useEffect(() => {
-    const newSocket = io();
+    const newSocket = io("https://tic-tac-toe-gamma-gilt.vercel.app/",{
+    upgrade: true,
+    });
     setSocket(newSocket);
 
     // Clean up function for disconnecting socket when unmounting
@@ -39,7 +41,7 @@ export const SocketProvider = ({ children }: Readonly<{ children: React.ReactNod
   useEffect(() => {
     const handleConnectError = async (err: Error) => {
       console.error("Connection Error:", err);
-
+      console.log("Connection Error, attempting reconnection")
       // Handle the error or attempt reconnection here
       await fetch("/api/socket");
     };
