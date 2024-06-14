@@ -12,7 +12,7 @@ const Grid = ({ n }: GridProps) => {
   const { userName, socket, roomId } = useSocket();
   const [gridSize, setGridSize] = useState({ widthCell: 0 });
   const [selectedCells, setSelectedCells] = useState<number[]>([]);
-  const [board, setBoard] = useState<string[]>(Array(n * n).fill(""));
+  const [board, setBoard] = useState<string[]>([]);
   const [widthCell, setWidthCell] = useState(0);
   const { users } = useUsers();
   const [symbol, setSymbol] = useState<string>("");
@@ -20,6 +20,11 @@ const Grid = ({ n }: GridProps) => {
   const [scores, setScores] = useState<{ [key: string]: number }>({});
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
+  useEffect(() => {
+    if (n) 
+    setBoard(Array(n * n).fill(""));
+  },[n]);
+  
   useEffect(() => {
     users.forEach((element: userType) => {
       if (element.id === userName) {
