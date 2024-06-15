@@ -19,13 +19,7 @@ const SocketHandler = (req: NextApiRequest, res:any) => {
   if (res.socket.server.io) {
     console.log("Socket already running");
   } else {
-    const io = new Server(res.socket.server,{
-      path: "/api/socket",
-      cors: {
-        origin: "*",
-        methods: ["GET", "POST"],
-      },
-    });
+    const io = new Server(res.socket.server);
     res.socket.server.io = io;
 
     io.on("connection", (socket) => {
