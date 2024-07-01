@@ -80,7 +80,7 @@ export default function Home() {
       <div className="divider-vertical w-[4px] h-80 rounded-3xl bg-white"></div>
       <div className={`right-side w-1/2 justify-center items-center flex flex-col ${poppins.className}`}>
         <div className="flex justify-center items-start flex-col">
-          <h1 className="font-black text-6xl">Tic Tac Toe</h1>
+          <h1 className="font-black text-6xl">Grid Gladiators</h1>
           <p className=" text-left text-sm pt-1">A new way to play the game</p>
           <div className="playerSymbols flex justify-center items-center py-10">
             <div className="player1-Left text-sm flex justify-center items-start flex-col gap-3">
